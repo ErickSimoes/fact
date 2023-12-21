@@ -1,8 +1,27 @@
 """Package with the Application Factory"""
 
 import os
+import secrets
 
 from flask import Flask
+
+
+def get_secret_key(path: str = '.flask_secret') -> str:
+    """Returns a token from the file, or generates a new one
+
+    :param path: Path to the secret file. Default is ``'.flask_secret'``
+
+    :return: The key as ``str``.
+    """
+
+    try:
+        with open(path, encoding='UTF-8') as secret_file:
+            return secret_file.read()
+    except FileNotFoundError:
+        with open(path, 'w', encoding='UTF-8') as secret_file:
+            token = secrets.token_hex(64)
+            secret_file.write(token)
+            return token
 
 
 def create_app(test_config=None):
@@ -10,7 +29,7 @@ def create_app(test_config=None):
 
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_mapping(
-        SECRET_KEY='dev',
+        SECRET_KEY=get_secret_key(),
         SQLALCHEMY_DATABASE_URI='sqlite:///app.db'
     )
 
