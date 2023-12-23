@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="pt-BR" data-bs-theme="dark">
+    <head>
+        <title>{% block page_title %}{{page_title}}{% endblock %}</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+        <!-- Bootstrap CSS v5.2.1 -->
+        <link href="{{url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet"/>
+    </head>
+
+    <body>
+        <header>
+            <!-- place navbar here -->
+        </header>
+        <main>
+            {% block content %}
+            {% endblock %}
+        </main>
+        <footer>
+            <!-- place footer here -->
+        </footer>
+        <!-- Bootstrap JavaScript Libraries -->
+        <script src="{{url_for('static', filename='js/bootstrap.bundle.min.js')}}"></script>
+    </body>
+</html>
