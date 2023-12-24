@@ -1,0 +1,19 @@
+<form class="p-4 p-md-5 border rounded-3 bg-body-tertiary">
+    <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="floatingInput" placeholder="seu-email@cesar.school">
+        <label for="floatingInput">Endereço de email</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="password" class="form-control" id="floatingPassword" placeholder="Senha">
+        <label for="floatingPassword">Palavra-passe</label>
+    </div>
+    <!--div class="checkbox mb-3">
+      <label>
+        <input type="checkbox" value="remember-me"> Remember me
+      </label>
+    </div-->
+    <button class="w-100 btn btn-lg btn-success" type="submit">Entrar</button>
+    <hr class="my-4">
+    <small class="text-body-secondary">Ainda não tem uma palavra-passe? Clique em <a
+            href="{{ url_for('register') }}">Registrar</a>.</small>
+</form>
