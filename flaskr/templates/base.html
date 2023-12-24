@@ -1,27 +1,57 @@
 <!doctype html>
 <html lang="pt-BR" data-bs-theme="dark">
-    <head>
-        <title>{% block page_title %}{{page_title}}{% endblock %}</title>
-        <!-- Required meta tags -->
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 
-        <!-- Bootstrap CSS v5.2.1 -->
-        <link href="{{url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet"/>
-    </head>
+<head>
+    {% block head %}
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-    <body>
-        <header>
-            <!-- place navbar here -->
-        </header>
-        <main>
-            {% block content %}
-            {% endblock %}
-        </main>
-        <footer>
-            <!-- place footer here -->
-        </footer>
-        <!-- Bootstrap JavaScript Libraries -->
-        <script src="{{url_for('static', filename='js/bootstrap.bundle.min.js')}}"></script>
-    </body>
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}" />
+
+    <title>FaCT - {% block title %}{% endblock %}</title>
+    {% endblock %}
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+    <header class="mb-4">
+        {% block header %}
+        <nav class="navbar navbar-expand fixed-top bg-body-tertiary">
+            <div class="container">
+                <a class="navbar-brand" href="{{ url_for('index') }}">FaCT</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Botão de navegação">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="Home" href="{{ url_for('index') }}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="#">Sobre</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="btn-group" role="group" aria-label="Botões de entrar e registrar">
+                    <a class="btn btn-success" href="{{ url_for('login') }}">Entrar</a>
+                    <a class="btn btn-outline-success" href="{{ url_for('register') }}">Registrar</a>
+                </div>
+            </div>
+        </nav>
+        {% endblock %}
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer class="mt-auto text-center bg-body-tertiary pt-3">
+        {% block footer %}
+        <p class="text-body-secondary">© 2024 Made with ♥️ by <a href="https://www.linkedin.com/in/ericksimoes/">Erick Simões</a></p>
+        {% endblock %}
+    </footer>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="{{url_for('static', filename='js/bootstrap.bundle.min.js')}}"></script>
+</body>
+
 </html>
