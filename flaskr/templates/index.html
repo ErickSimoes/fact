@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row align-items-center g-lg-5 py-5">
+        <div class="col-md-6">
+            <h1 class="display-3 fw-bold text-center">FaCT</h1>
+            <p class="lead text-center"><b>Fa</b>tor de <b>C</b>ontribuição <b>T</b>écnica</p>
+
+            <p>Este sistema automatiza a coleta e cálculo do FaCT - Fator de Contribuição Técnica.</p>
+
+            <p>O FaCT de cada estudante é calculado a partir da avaliação dos/as integrantes do grupo, onde cada membro
+                da equipe avalia o percentual de contribuição dos seus/suas colegas sob seis critérios avaliativos:</p>
+
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-action">Pensamento crítico e criatividade</li>
+                <li class="list-group-item list-group-item-action">Comunicação</li>
+                <li class="list-group-item list-group-item-action">Colaboração</li>
+                <li class="list-group-item list-group-item-action">Entregas e prazos</li>
+                <li class="list-group-item list-group-item-action">Qualidade das entregas</li>
+                <li class="list-group-item list-group-item-action">Presença</li>
+            </ul>
+            <a class="btn btn-success mt-3 disabled" aria-disabled="true">Saiba mais sobre o FaCT</a>
+        </div>
+        <div class="col-md-6">
+            {% include 'components/form_login.html' %}
+        </div>
+    </div>
+</div>
+{% endblock%}
