@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Registrar{% endblock %}
+
+{% block content %}
+<div class="container text-center mt-5">
+    <div class="row justify-content-md-center">
+        <div class="col col-xl-4">
+            <h1 class="h3 mb-3 fw-normal mt-5">Faça seu registro</h1>
+            <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary">
+                <p class="lead">Se esse for seu primeiro acesso ou se você perdeu sua palabra-passe, preencha seu emai.
+                </p>
+
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="floatingInput" placeholder="seu-email@cesar.school">
+                    <label for="floatingInput">Endereço de email</label>
+                </div>
+                <!--div class="checkbox mb-3">
+                  <label>
+                    <input type="checkbox" value="remember-me"> Remember me
+                  </label>
+                </div-->
+                <button class="w-100 btn btn-lg btn-success" type="submit">Registrar</button>
+                <hr class="my-4">
+                <small class="text-body-secondary">Já tem uma palavra-passe? Então faça o <a
+                        href="{{ url_for('login') }}">Login</a>.</small>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock%}
