@@ -4,7 +4,10 @@ import os
 import secrets
 
 from flask import Flask, render_template
+from dotenv import load_dotenv
 
+
+load_dotenv()
 
 def get_secret_key(path: str = '.flask_secret') -> str:
     """Returns a token from the file, or generates a new one
@@ -30,7 +33,7 @@ def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_mapping(
         SECRET_KEY=get_secret_key(),
-        SQLALCHEMY_DATABASE_URI='sqlite:///app.db'
+        SQLALCHEMY_DATABASE_URI=os.environ['DATABASE_CONNECTION_URI']
     )
 
     if test_config is None:
