@@ -3,7 +3,7 @@
 import os
 import secrets
 
-from flask import Flask
+from flask import Flask, render_template
 
 
 def get_secret_key(path: str = '.flask_secret') -> str:
@@ -45,6 +45,6 @@ def create_app(test_config=None):
 
     @app.route('/hello')
     def hello():
-        return 'Hello, World!'
+        return render_template('base.html')
 
     return app
